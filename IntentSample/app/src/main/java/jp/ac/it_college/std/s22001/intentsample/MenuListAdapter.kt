@@ -5,7 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import jp.ac.it_college.std.s22001.intentsample.databinding.MenuRowBinding
 
-class MenuListAdapter(private val data: List<Menu>) :
+class MenuListAdapter(
+    private val data: List<Menu>,
+    private val callback: (String, Int) -> Unit // その時が来たら呼び出してください(callback)
+) :
     RecyclerView.Adapter<MenuListAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: MenuRowBinding) : RecyclerView.ViewHolder(binding.root)
@@ -25,9 +28,10 @@ class MenuListAdapter(private val data: List<Menu>) :
         holder.binding.apply {
             tvName.text = menu.name
             tvPrice.text = menu.price.toString()
+            root.setOnClickListener {
+                // この Adapter　を使う側に、選択された定食名と価格をパラメータとしてコールバック
+               callback(menu.name, menu.price)
+            }
         }
-
-//        holder.binding.tvName.text = item.name
-//        holder.binding.tvPrice.text = item.price.toString()
     }
 }

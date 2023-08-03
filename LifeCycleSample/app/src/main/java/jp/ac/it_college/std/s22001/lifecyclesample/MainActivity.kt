@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btPrevious.setOnClickListener(::onNextClick)
+        binding.btNext.setOnClickListener(::onNextClick)
     }
 
     override fun onStart() {

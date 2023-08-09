@@ -13,6 +13,14 @@ class MenuThanksActivity : AppCompatActivity() {
         binding = ActivityMenuThanksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Toolbar を ActionBar として使う
+        setSupportActionBar(binding.toolbar2)
+
+        // アクションバーの戻るボタン(<-)を表示させる。
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+
         // 前の画面から渡ってくるであろうデータを取り出す
         val menuName = intent.getStringExtra("menuName") ?: ""
         val menuPrice = intent.getIntExtra("menuPrice", 0)
@@ -26,8 +34,7 @@ class MenuThanksActivity : AppCompatActivity() {
             finish()
         }
 
-        // アクションバーの戻るボタン(<-)を表示させる。
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

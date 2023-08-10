@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Toolbar を ActionBar として使う
+        setSupportActionBar(binding.toolbar)
+
         initList(binding.lvMenu)
     }
 
